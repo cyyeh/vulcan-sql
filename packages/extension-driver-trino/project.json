@@ -1,0 +1,32 @@
+{
+  "root": "packages/extension-driver-trino",
+  "sourceRoot": "packages/extension-driver-trino/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/extension-driver-trino",
+        "main": "packages/extension-driver-trino/src/index.ts",
+        "tsConfig": "packages/extension-driver-trino/tsconfig.lib.json",
+        "assets": ["packages/extension-driver-trino/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/extension-driver-trino/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/extension-driver-trino"],
+      "options": {
+        "jestConfig": "packages/extension-driver-trino/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
